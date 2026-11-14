@@ -1,12 +1,155 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kelas Bu Sari</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belajar Berpikir Komputasional</title>
+<style>
+:root{--navy:#14213d;--blue:#2563eb;--cyan:#e8f4ff;--ink:#1f2937;--muted:#64748b;--bg:#f5f8fc;--white:#fff;--green:#15803d;--red:#b91c1c}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+header{background:linear-gradient(135deg,#14213d,#2563eb);color:white;padding:48px 20px 42px;text-align:center}
+header .tag{display:inline-block;background:#ffffff22;border:1px solid #ffffff55;border-radius:30px;padding:5px 13px;font-size:.85rem}
+header h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;margin:16px auto;max-width:850px}
+header p{max-width:700px;margin:0 auto;color:#e5efff}
+nav{position:sticky;top:0;background:#fff;box-shadow:0 2px 12px #0f172a12;z-index:5;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:10px}
+nav a{color:#1e3a8a;text-decoration:none;padding:7px 13px;border-radius:20px;font-weight:600;font-size:.92rem}
+nav a:hover{background:var(--cyan)}
+main{max-width:1050px;margin:30px auto;padding:0 18px}
+section{scroll-margin-top:85px;margin:24px 0;background:white;border-radius:18px;padding:clamp(20px,4vw,32px);box-shadow:0 5px 22px #0f172a0b}
+h2{color:var(--navy);margin-top:0;font-size:1.65rem}
+h3{color:#1e40af;margin-bottom:7px}
+.lead{font-size:1.08rem;color:#475569}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:18px}
+.card{border:1px solid #dbeafe;border-radius:14px;padding:17px;background:#fbfdff}
+.card .num{font-size:1.5rem}
+.card h3{margin:5px 0}
+.example{background:#eff6ff;border-left:4px solid var(--blue);padding:13px 16px;border-radius:8px;margin:14px 0}
+ol,ul{padding-left:22px}
+table{width:100%;border-collapse:collapse;margin:14px 0}
+th,td{border:1px solid #dbe3ef;padding:10px;text-align:left}
+th{background:#eff6ff;color:#1e3a8a}
+.quiz-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-weight:600}
+.progress{height:9px;background:#e2e8f0;border-radius:20px;overflow:hidden;margin:12px 0 20px}
+#bar{height:100%;width:0;background:linear-gradient(90deg,#2563eb,#06b6d4);transition:width .25s}
+.question{font-size:1.15rem;font-weight:700;margin:18px 0}
+.answers{display:grid;gap:10px}
+.answer{border:1px solid #cbd5e1;background:#fff;border-radius:11px;padding:12px 14px;text-align:left;font:inherit;cursor:pointer;transition:.15s}
+.answer:hover:not(:disabled){border-color:var(--blue);background:#eff6ff}
+.answer:disabled{cursor:default}
+.answer.correct{border-color:#16a34a;background:#f0fdf4;color:#166534}
+.answer.wrong{border-color:#dc2626;background:#fef2f2;color:#991b1b}
+#feedback{margin-top:15px;padding:13px;border-radius:10px;display:none}
+#feedback.good{display:block;background:#f0fdf4;color:#166534}
+#feedback.bad{display:block;background:#fff7ed;color:#9a3412}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+button.primary{background:var(--blue);color:white;border:0;border-radius:10px;padding:11px 18px;font:inherit;font-weight:700;cursor:pointer}
+button.secondary{background:#e2e8f0;color:#1e293b;border:0;border-radius:10px;padding:11px 18px;font:inherit;font-weight:700;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+#result{display:none;text-align:center;padding:20px;background:#eff6ff;border-radius:14px;margin-top:18px}
+#result strong{font-size:2rem;color:#1d4ed8}
+footer{text-align:center;padding:28px 15px;color:#64748b;font-size:.9rem}
+@media(max-width:600px){header{padding:36px 17px}nav{gap:2px}nav a{font-size:.82rem;padding:7px 9px}table{font-size:.9rem}}
+</style>
 </head>
 <body>
-  <h1>Selamat datang!</h1>
-  <p>Website kelas Informatika.</p>
+<header>
+  <span class="tag">Materi Informatika • Belajar sambil bermain</span>
+  <h1>Berpikir Komputasional</h1>
+  <p>Belajar memecahkan masalah secara logis, terstruktur, dan kreatif melalui empat konsep utama. Setelah belajar, uji pemahamanmu lewat kuis interaktif!</p>
+</header>
+<nav>
+  <a href="#pengertian">Pengertian</a><a href="#konsep">4 Konsep</a><a href="#contoh">Contoh</a><a href="#quiz">Kuis Interaktif</a>
+</nav>
+<main>
+<section id="pengertian">
+  <h2>Apa Itu Berpikir Komputasional?</h2>
+  <p class="lead">Berpikir komputasional adalah cara menyelesaikan masalah dengan membaginya menjadi bagian yang lebih kecil, menemukan pola, mengambil informasi penting, lalu menyusun langkah penyelesaian yang jelas.</p>
+  <p>Disebut “komputasional” karena cara berpikir ini dapat digunakan untuk menyusun solusi yang bisa dijalankan manusia maupun komputer. Kita tidak harus selalu menggunakan komputer untuk menerapkannya.</p>
+  <div class="example"><b>Contoh sederhana:</b> Saat merencanakan perjalanan ke sekolah, kita menentukan tujuan, memilih rute, memperkirakan waktu, dan menyiapkan perlengkapan. Kita sedang menyelesaikan masalah secara teratur.</div>
+  <h3>Tujuan mempelajarinya</h3>
+  <ul><li>Melatih kemampuan berpikir logis dan kritis.</li><li>Membantu menyelesaikan masalah secara bertahap.</li><li>Membuat keputusan berdasarkan informasi yang relevan.</li><li>Menyusun instruksi yang jelas dan efisien.</li></ul>
+</section>
+
+<section id="konsep">
+  <h2>Empat Pilar Berpikir Komputasional</h2>
+  <p>Empat konsep ini saling melengkapi ketika kita mencari solusi dari sebuah masalah.</p>
+  <div class="cards">
+    <article class="card"><div class="num">🧩</div><h3>1. Dekomposisi</h3><p>Memecah masalah besar menjadi bagian-bagian kecil agar lebih mudah dipahami dan diselesaikan.</p><b>Contoh:</b> Persiapan acara dibagi menjadi konsumsi, tempat, undangan, dan perlengkapan.</article>
+    <article class="card"><div class="num">🔎</div><h3>2. Pengenalan Pola</h3><p>Mencari kesamaan atau kejadian berulang dari beberapa masalah atau data.</p><b>Contoh:</b> Menyadari bahwa jalan tertentu selalu macet pada jam berangkat sekolah.</article>
+    <article class="card"><div class="num">🎯</div><h3>3. Abstraksi</h3><p>Memusatkan perhatian pada informasi penting dan mengabaikan detail yang tidak diperlukan.</p><b>Contoh:</b> Peta perjalanan menampilkan jalan dan lokasi, bukan setiap pohon atau rumah.</article>
+    <article class="card"><div class="num">📋</div><h3>4. Algoritma</h3><p>Menyusun urutan langkah yang logis dan jelas untuk menyelesaikan masalah.</p><b>Contoh:</b> Langkah membuat mi: siapkan alat, didihkan air, masak mi, tiriskan, lalu sajikan.</article>
+  </div>
+</section>
+
+<section id="contoh">
+  <h2>Contoh Penerapan dalam Kehidupan Sehari-hari</h2>
+  <h3>Kasus: Menyiapkan tugas kelompok</h3>
+  <ol>
+    <li><b>Dekomposisi:</b> Bagi tugas menjadi mencari materi, menulis, membuat slide, dan presentasi.</li>
+    <li><b>Pengenalan pola:</b> Perhatikan tugas sebelumnya untuk mengetahui pembagian kerja yang efektif.</li>
+    <li><b>Abstraksi:</b> Pilih informasi yang paling penting dan sesuai dengan topik.</li>
+    <li><b>Algoritma:</b> Tentukan urutan kerja: diskusi, riset, menyusun materi, memeriksa, lalu presentasi.</li>
+  </ol>
+  <h3>Ringkasan perbedaan</h3>
+  <table><thead><tr><th>Konsep</th><th>Pertanyaan kunci</th></tr></thead><tbody>
+    <tr><td>Dekomposisi</td><td>Bagaimana memecah masalah ini?</td></tr>
+    <tr><td>Pengenalan pola</td><td>Apa kesamaan atau pengulangannya?</td></tr>
+    <tr><td>Abstraksi</td><td>Informasi mana yang paling penting?</td></tr>
+    <tr><td>Algoritma</td><td>Apa urutan langkah penyelesaiannya?</td></tr>
+  </tbody></table>
+</section>
+
+<section id="quiz">
+  <h2>🎮 Kuis Tebakan Berpikir Komputasional</h2>
+  <p>Jawablah 10 pertanyaan pilihan ganda berikut. Pilih satu jawaban yang paling tepat. Setelah memilih, kamu akan melihat pembahasan singkat.</p>
+  <div class="quiz-top"><span id="counter">Soal 1 dari 10</span><span>Skor: <span id="score">0</span></span></div>
+  <div class="progress"><div id="bar"></div></div>
+  <div id="quiz-area">
+    <div class="question" id="question"></div>
+    <div class="answers" id="answers"></div>
+    <div id="feedback" aria-live="polite"></div>
+    <div class="actions"><button class="primary" id="next" style="display:none">Soal Berikutnya →</button></div>
+  </div>
+  <div id="result"><h3>Kuis selesai!</h3><p>Skor akhir kamu:</p><strong id="final-score">0/10</strong><p id="message"></p><button class="primary" id="restart">Ulangi Kuis</button></div>
+</section>
+</main>
+<footer>Materi pembelajaran Berpikir Komputasional • Semangat belajar dan terus berlatih!</footer>
+<script>
+const questions=[
+{q:"Ketika tugas besar dibagi menjadi beberapa tugas kecil, konsep apakah yang digunakan?",a:["Abstraksi","Dekomposisi","Algoritma","Pengenalan pola"],c:1,e:"Dekomposisi berarti memecah masalah besar menjadi bagian-bagian kecil."},
+{q:"Kamu melihat bahwa setiap hari Senin jalan menuju sekolah selalu ramai. Kamu sedang melakukan ...",a:["Pengenalan pola","Dekomposisi","Abstraksi","Pengurutan"],c:0,e:"Pengenalan pola membantu menemukan kejadian yang berulang atau memiliki kesamaan."},
+{q:"Saat melihat peta, kamu hanya memperhatikan jalan dan lokasi tujuan, bukan warna setiap rumah. Ini contoh ...",a:["Algoritma","Dekomposisi","Abstraksi","Pengenalan pola"],c:2,e:"Abstraksi memilih informasi yang penting dan mengabaikan detail yang tidak dibutuhkan."},
+{q:"Urutan langkah membuat teh dari menyiapkan gelas hingga menyajikannya disebut ...",a:["Pola","Algoritma","Abstraksi","Dekomposisi"],c:1,e:"Algoritma adalah urutan instruksi yang jelas untuk mencapai tujuan."},
+{q:"Manakah yang paling tepat menggambarkan berpikir komputasional?",a:["Menghafal semua jawaban","Menggunakan komputer untuk semua hal","Menyelesaikan masalah secara logis dan terstruktur","Menebak tanpa informasi"],c:2,e:"Berpikir komputasional adalah pendekatan sistematis untuk memecahkan masalah; komputer tidak selalu diperlukan."},
+{q:"Dalam membuat aplikasi perpustakaan, tim memisahkan pekerjaan menjadi data buku, anggota, dan peminjaman. Ini adalah ...",a:["Dekomposisi","Abstraksi","Algoritma","Pengenalan pola"],c:0,e:"Pekerjaan dipecah menjadi beberapa bagian yang lebih mudah dikelola."},
+{q:"Kamu mengamati beberapa soal matematika dan menemukan semuanya dapat diselesaikan dengan rumus yang sama. Kamu menemukan ...",a:["Kesalahan","Pola","Urutan acak","Abstraksi"],c:1,e:"Kesamaan cara penyelesaian pada beberapa soal merupakan pola."},
+{q:"Dalam instruksi evakuasi, informasi paling penting adalah jalur keluar dan titik kumpul. Memilih informasi tersebut merupakan ...",a:["Dekomposisi","Pengenalan pola","Abstraksi","Algoritma"],c:2,e:"Abstraksi menonjolkan informasi yang relevan untuk tujuan tertentu."},
+{q:"Manakah urutan algoritma yang paling masuk akal untuk menyalakan komputer?",a:["Buka aplikasi, cabut kabel, tekan tombol","Pastikan terhubung listrik, tekan tombol daya, tunggu sistem menyala","Matikan monitor, tekan tombol daya, cabut kabel","Ketik kata sandi sebelum komputer dinyalakan"],c:1,e:"Langkah algoritma harus tersusun logis dan dapat dijalankan."},
+{q:"Empat pilar utama berpikir komputasional adalah ...",a:["Membaca, menulis, menghitung, menggambar","Dekomposisi, pola, abstraksi, algoritma","Internet, komputer, aplikasi, data","Mencoba, menebak, menghafal, menyalin"],c:1,e:"Empat pilar utamanya adalah dekomposisi, pengenalan pola, abstraksi, dan algoritma."}
+];
+let index=0,score=0,answered=false;
+const $=id=>document.getElementById(id);
+function render(){
+ const q=questions[index];answered=false;
+ $("counter").textContent=`Soal ${index+1} dari ${questions.length}`;
+ $("score").textContent=score;$("bar").style.width=`${index/questions.length*100}%`;
+ $("question").textContent=q.q;$("answers").innerHTML="";$("feedback").className="";$("feedback").style.display="none";$("feedback").textContent="";$("next").style.display="none";
+ q.a.forEach((choice,i)=>{const b=document.createElement("button");b.className="answer";b.textContent=String.fromCharCode(65+i)+". "+choice;b.addEventListener("click",()=>choose(i));$("answers").appendChild(b)});
+}
+function choose(i){
+ if(answered)return;answered=true;const q=questions[index];const buttons=[...$("answers").children];
+ buttons.forEach((b,j)=>{b.disabled=true;if(j===q.c)b.classList.add("correct");if(j===i&&i!==q.c)b.classList.add("wrong")});
+ const good=i===q.c;if(good)score++;
+ $("score").textContent=score;$("feedback").textContent=(good?"Benar! ":"Belum tepat. ")+q.e;$("feedback").className=good?"good":"bad";$("feedback").style.display="block";
+ $("next").textContent=index===questions.length-1?"Lihat Hasil":"Soal Berikutnya →";$("next").style.display="inline-block";
+}
+$("next").addEventListener("click",()=>{if(index<questions.length-1){index++;render()}else finish()});
+function finish(){
+ $("quiz-area").style.display="none";$("result").style.display="block";$("bar").style.width="100%";$("final-score").textContent=`${score}/${questions.length}`;
+ $("message").textContent=score===10?"Luar biasa! Kamu menguasai materi dengan sangat baik.":score>=7?"Bagus! Pemahamanmu sudah baik. Terus berlatih agar semakin mahir.":score>=5?"Cukup baik. Pelajari kembali empat pilar dan coba lagi.":"Jangan menyerah! Baca kembali materi, lalu ulangi kuis untuk meningkatkan pemahaman.";
+}
+$("restart").addEventListener("click",()=>{index=0;score=0;$("result").style.display="none";$("quiz-area").style.display="block";render()});
+render();
+</script>
 </body>
 </html>
